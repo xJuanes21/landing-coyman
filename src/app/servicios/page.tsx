@@ -1,11 +1,5 @@
-import type { Metadata } from "next"
-import { ServicesFull } from "@/components/sections/services/ServicesFull"
-import { CTA } from "@/components/sections/landing/CTA"
-
-export const metadata: Metadata = {
-  title: "Nuestros Servicios | Coyman Proyectos",
-  description: "Reparación de lavadoras, neveras, aires acondicionados e instalaciones eléctricas certificadas.",
-}
+import { ServicesFull } from "@/components/sections/services/ServicesFull";
+import { CTA } from "@/components/sections/landing/CTA";
 
 export default function ServicesPage() {
   return (
@@ -15,5 +9,5 @@ export default function ServicesPage() {
       </div>
       <CTA />
     </div>
-  )
+  );
 }

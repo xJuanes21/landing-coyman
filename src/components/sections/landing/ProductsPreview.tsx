@@ -19,7 +19,7 @@ const products = [
     tag: "LÍNEA BLANCA",
     icon: Settings,
     desc: "Piezas de fábrica certificadas para garantizar el correcto funcionamiento y durabilidad de su línea blanca.",
-    accent: "#F59E0B",
+    accent: "#e4802c",
     items: [
       "Motores y bombas",
       "Tarjetas electrónicas",
@@ -36,7 +36,7 @@ const products = [
     tag: "INSUMOS & EQUIPOS",
     icon: Plug,
     desc: "Insumos y equipos certificados para tableros, cableado estructurado e iluminación residencial y comercial.",
-    accent: "#0EA5E9",
+    accent: "#0f2549",
     items: [
       "Cableado THHN certificado",
       "Breakers y protecciones",
@@ -105,22 +105,17 @@ function ProductCard({
       />
 
       <div
-        className="relative rounded-2xl overflow-hidden h-full"
+        className="relative rounded-2xl overflow-hidden h-full bg-white border border-[var(--color-brand-blue)]/5"
         style={{
-          background:
-            "linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
-          border: hovered
-            ? `1px solid ${product.accent}35`
-            : "1px solid rgba(255,255,255,0.06)",
           boxShadow: hovered
-            ? `0 28px 64px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.07)`
-            : `0 10px 28px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.04)`,
-          transition: "border 0.35s ease, box-shadow 0.35s ease",
+            ? `0 28px 64px rgba(15,37,73,0.08)`
+            : `0 10px 28px rgba(15,37,73,0.04)`,
+          transition: "box-shadow 0.35s ease",
         }}
       >
         {/* Top accent bar */}
         <motion.div
-          className="absolute top-0 left-0 right-0 h-[1.5px]"
+          className="absolute top-0 left-0 right-0 h-[3px]"
           style={{
             background: `linear-gradient(90deg, transparent, ${product.accent}, transparent)`,
           }}
@@ -132,12 +127,12 @@ function ProductCard({
           {/* Header */}
           <div className="flex items-start justify-between mb-8">
             <div>
-              <span className="text-[9px] font-black tracking-[0.3em] uppercase font-mono text-white/20 block mb-1">
+              <span className="text-[9px] font-black tracking-[0.3em] uppercase font-mono text-[var(--color-brand-muted)] block mb-1">
                 {product.index}
               </span>
               <span
                 className="text-[9px] font-black tracking-[0.28em] uppercase"
-                style={{ color: product.accent, opacity: 0.8 }}
+                style={{ color: product.accent, opacity: 1 }}
               >
                 {product.tag}
               </span>
@@ -147,8 +142,8 @@ function ProductCard({
               className="w-14 h-14 rounded-2xl flex items-center justify-center"
               animate={hovered ? { scale: 1.07 } : { scale: 1 }}
               style={{
-                background: `linear-gradient(145deg, ${product.accent}20, ${product.accent}07)`,
-                border: `1px solid ${product.accent}28`,
+                background: `linear-gradient(145deg, ${product.accent}15, ${product.accent}05)`,
+                border: `1px solid ${product.accent}20`,
               }}
             >
               <product.icon
@@ -161,21 +156,21 @@ function ProductCard({
 
           {/* Title */}
           <h3
-            className="text-3xl font-black text-white tracking-tight mb-2"
+            className="text-3xl font-black text-[var(--color-brand-blue)] tracking-tight mb-2"
             style={{ fontFamily: "'Sora', 'DM Sans', sans-serif" }}
           >
             {product.title}
           </h3>
 
           <div
-            className="w-8 h-[1.5px] mb-5"
+            className="w-8 h-[2px] mb-5"
             style={{
-              background: `linear-gradient(90deg, ${product.accent}70, transparent)`,
+              background: `linear-gradient(90deg, ${product.accent}90, transparent)`,
             }}
           />
 
           {/* Description */}
-          <p className="text-[13px] text-white/40 leading-relaxed font-light mb-8">
+          <p className="text-[13px] text-[var(--color-brand-dark)]/80 leading-relaxed font-light mb-8">
             {product.desc}
           </p>
 
@@ -191,10 +186,10 @@ function ProductCard({
                 className="flex items-center gap-3"
               >
                 <div
-                  className="w-1 h-1 rounded-full flex-shrink-0"
-                  style={{ background: product.accent, opacity: 0.6 }}
+                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                  style={{ background: product.accent, opacity: 0.8 }}
                 />
-                <span className="text-[12.5px] text-white/38 font-medium">
+                <span className="text-[12.5px] text-[var(--color-brand-dark)] font-medium">
                   {item}
                 </span>
               </motion.li>
@@ -202,10 +197,10 @@ function ProductCard({
           </ul>
 
           {/* Bottom: stat + action */}
-          <div className="flex items-end justify-between pt-6 border-t border-white/[0.05]">
+          <div className="flex items-end justify-between pt-6 border-t border-[var(--color-brand-blue)]/5">
             <div>
               <div
-                className="text-2xl font-black text-white tracking-tight"
+                className="text-2xl font-black tracking-tight"
                 style={{
                   fontFamily: "'Sora', sans-serif",
                   color: product.accent,
@@ -213,14 +208,14 @@ function ProductCard({
               >
                 {product.stat}
               </div>
-              <div className="text-[9px] font-bold tracking-widest uppercase text-white/25 mt-0.5">
+              <div className="text-[9px] font-bold tracking-widest uppercase text-[var(--color-brand-muted)] mt-0.5">
                 {product.statLabel}
               </div>
             </div>
 
             <motion.div
               className="flex items-center gap-1.5 text-[11px] font-bold tracking-widest uppercase cursor-pointer"
-              style={{ color: product.accent, opacity: hovered ? 1 : 0.45 }}
+              style={{ color: product.accent, opacity: hovered ? 1 : 0.6 }}
               animate={hovered ? { x: 0 } : { x: -3 }}
               transition={{ duration: 0.3 }}
             >
@@ -237,22 +232,16 @@ function ProductCard({
 export function ProductsPreview() {
   return (
     <section
-      className="relative py-32 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(180deg, #080A0E 0%, #0C0F16 60%, #080A0E 100%)",
-      }}
+      className="relative py-32 overflow-hidden bg-[var(--color-brand-bg)]"
     >
-
-
       {/* Ambient */}
       <div
         className="absolute top-0 right-0 w-[500px] h-[400px] rounded-full opacity-[0.05] blur-[130px]"
-        style={{ background: "#F59E0B" }}
+        style={{ background: "var(--color-brand-orange)" }}
       />
       <div
-        className="absolute bottom-0 left-0 w-[400px] h-[300px] rounded-full opacity-[0.04] blur-[110px]"
-        style={{ background: "#0EA5E9" }}
+        className="absolute bottom-0 left-0 w-[400px] h-[300px] rounded-full opacity-[0.05] blur-[110px]"
+        style={{ background: "var(--color-brand-blue)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -266,8 +255,8 @@ export function ProductsPreview() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-3 mb-6"
             >
-              <div className="w-8 h-[1px] bg-white/20" />
-              <span className="text-[10px] font-black tracking-[0.35em] uppercase text-white/30 font-mono">
+              <div className="w-8 h-[1px] bg-[var(--color-brand-muted)]/50" />
+              <span className="text-[10px] font-black tracking-[0.35em] uppercase text-[var(--color-brand-muted)] font-mono">
                 Inventario & Suministros
               </span>
             </motion.div>
@@ -281,16 +270,13 @@ export function ProductsPreview() {
                 delay: 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="text-5xl lg:text-[58px] font-black text-white leading-[1.02] tracking-tight"
+              className="text-5xl lg:text-[58px] font-black text-[var(--color-brand-blue)] leading-[1.02] tracking-tight"
               style={{ fontFamily: "'Sora', 'DM Sans', sans-serif" }}
             >
               Productos{" "}
               <span
                 style={{
-                  background:
-                    "linear-gradient(120deg, #fff 20%, rgba(255,255,255,0.38))",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  color: "var(--color-brand-orange)",
                 }}
               >
                 & Repuestos
@@ -303,7 +289,7 @@ export function ProductsPreview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.22 }}
-            className="text-[15px] text-white/35 leading-relaxed max-w-xs lg:text-right font-light"
+            className="text-[15px] text-[var(--color-brand-dark)]/80 leading-relaxed max-w-xs lg:text-right font-light"
           >
             Además de servicios, proveemos partes originales e insumos
             eléctricos con total garantía de calidad.
@@ -325,15 +311,11 @@ export function ProductsPreview() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.45 }}
-          className="mt-12 max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 px-8 py-5 rounded-2xl border border-white/[0.05]"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01))",
-          }}
+          className="mt-12 max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 px-8 py-5 rounded-2xl bg-white border border-[var(--color-brand-blue)]/5 shadow-sm"
         >
           <div className="flex items-center gap-2">
-            <Package size={15} className="text-white/25" />
-            <span className="text-[12px] text-white/30 font-medium">
+            <Package size={15} className="text-[var(--color-brand-blue)]" />
+            <span className="text-[12px] text-[var(--color-brand-dark)]/80 font-medium">
               Despacho a todo el Valle del Cauca · Entrega el mismo día
               disponible
             </span>
@@ -343,11 +325,10 @@ export function ProductsPreview() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl text-[12px] font-bold tracking-wide text-white transition-all duration-300 group shrink-0"
+              className="flex items-center gap-2 px-6 py-3 rounded-xl text-[12px] font-bold tracking-wide text-[var(--color-brand-blue)] transition-all duration-300 group shrink-0"
               style={{
-                background:
-                  "linear-gradient(135deg, rgba(255,255,255,0.09), rgba(255,255,255,0.03))",
-                border: "1px solid rgba(255,255,255,0.09)",
+                background: "rgba(15,37,73,0.04)",
+                border: "1px solid rgba(15,37,73,0.1)",
               }}
             >
               Catálogo completo

@@ -3,13 +3,13 @@
 import React from "react";
 import { LucideIcon } from "lucide-react";
 
-interface FloatingInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface FloatingTextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   icon: LucideIcon;
   error?: string;
 }
 
-export const FloatingInput: React.FC<FloatingInputProps> = ({
+export const FloatingTextarea: React.FC<FloatingTextareaProps> = ({
   label,
   icon: Icon,
   error,
@@ -20,17 +20,17 @@ export const FloatingInput: React.FC<FloatingInputProps> = ({
 }) => {
   return (
     <div className={`group relative w-full pt-6 ${className}`}>
-      <div className="relative flex items-center">
+      <div className="relative flex items-start">
         {/* Icon */}
-        <div className="absolute left-0 text-[var(--color-brand-muted)] group-focus-within:text-[var(--color-brand-orange)] transition-colors duration-300">
+        <div className="absolute left-0 top-3 text-[var(--color-brand-muted)] group-focus-within:text-[var(--color-brand-orange)] transition-colors duration-300">
           <Icon className="w-5 h-5" />
         </div>
 
-        {/* Input */}
-        <input
+        {/* Textarea */}
+        <textarea
           id={id}
           value={value}
-          className="peer w-full bg-transparent border-b-2 border-[var(--color-brand-blue)]/10 text-[var(--color-brand-dark)] text-[15px] font-medium pl-9 pr-4 py-3 outline-none transition-all duration-300 focus:border-[var(--color-brand-orange)] disabled:opacity-50"
+          className="peer w-full bg-transparent border-b-2 border-[var(--color-brand-blue)]/10 text-[var(--color-brand-dark)] text-[15px] font-medium pl-9 pr-4 py-3 min-h-[120px] resize-y outline-none transition-all duration-300 focus:border-[var(--color-brand-orange)] disabled:opacity-50"
           placeholder=" "
           {...props}
         />

@@ -9,21 +9,21 @@ const pillars = [
     icon: Shield,
     title: "Protección",
     desc: "Cada trabajo respaldado por garantía escrita y responsabilidad civil.",
-    accent: "#10B981",
+    accent: "#0f2549",
     index: "01",
   },
   {
     icon: ThumbsUp,
     title: "Calidad",
     desc: "Estándares técnicos de la industria en cada intervención.",
-    accent: "#0EA5E9",
+    accent: "#e4802c",
     index: "02",
   },
   {
     icon: Star,
     title: "Reputación",
     desc: "Valoración promedio de 4.9★ respaldada por cientos de clientes.",
-    accent: "#F59E0B",
+    accent: "#0f2549",
     index: "03",
   },
 ];
@@ -31,31 +31,25 @@ const pillars = [
 export function Trust() {
   return (
     <section
-      className="relative py-32 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(180deg, #07090D 0%, #0A0C12 50%, #07090D 100%)",
-      }}
+      className="relative py-32 overflow-hidden bg-[var(--color-brand-bg)]"
     >
-
-
       {/* Central radial */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(16,185,129,0.05) 0%, transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(15,37,73,0.03) 0%, transparent 70%)",
         }}
       />
 
       {/* Glows */}
       <div
-        className="absolute top-0 left-1/3 w-[500px] h-[350px] rounded-full opacity-[0.04] blur-[130px]"
-        style={{ background: "#10B981" }}
+        className="absolute top-0 left-1/3 w-[500px] h-[350px] rounded-full opacity-[0.05] blur-[130px]"
+        style={{ background: "var(--color-brand-blue)" }}
       />
       <div
-        className="absolute bottom-0 right-1/3 w-[400px] h-[300px] rounded-full opacity-[0.04] blur-[110px]"
-        style={{ background: "#0EA5E9" }}
+        className="absolute bottom-0 right-1/3 w-[400px] h-[300px] rounded-full opacity-[0.05] blur-[110px]"
+        style={{ background: "var(--color-brand-orange)" }}
       />
 
       {/* Horizontal rule accent at top */}
@@ -63,7 +57,7 @@ export function Trust() {
         className="absolute top-0 left-0 right-0 h-[1px]"
         style={{
           background:
-            "linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.06) 70%, transparent)",
+            "linear-gradient(90deg, transparent, rgba(15,37,73,0.08) 30%, rgba(15,37,73,0.08) 70%, transparent)",
         }}
       />
 
@@ -79,8 +73,8 @@ export function Trust() {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-3 mb-7"
             >
-              <div className="w-8 h-[1px] bg-white/20" />
-              <span className="text-[10px] font-black tracking-[0.35em] uppercase text-white/30 font-mono">
+              <div className="w-8 h-[1px] bg-[var(--color-brand-muted)]/50" />
+              <span className="text-[10px] font-black tracking-[0.35em] uppercase text-[var(--color-brand-muted)] font-mono">
                 Filosofía de trabajo
               </span>
             </motion.div>
@@ -94,18 +88,11 @@ export function Trust() {
                 delay: 0.1,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="text-5xl lg:text-[56px] font-black text-white leading-[1.04] tracking-tight mb-7"
+              className="text-5xl lg:text-[56px] font-black text-[var(--color-brand-blue)] leading-[1.04] tracking-tight mb-7"
               style={{ fontFamily: "'Sora', 'DM Sans', sans-serif" }}
             >
               Construyendo{" "}
-              <span
-                style={{
-                  background:
-                    "linear-gradient(120deg, #10B981 0%, #34D399 60%, rgba(52,211,153,0.5) 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}
-              >
+              <span style={{ color: "var(--color-brand-orange)" }}>
                 confianza
               </span>{" "}
               en cada hogar
@@ -116,7 +103,7 @@ export function Trust() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.22 }}
-              className="text-[15px] text-white/38 leading-relaxed font-light mb-10 max-w-md"
+              className="text-[15px] text-[var(--color-brand-dark)]/90 leading-relaxed font-light mb-10 max-w-md"
             >
               En COYMAN PROYECTOS entendemos que su tranquilidad es lo primero.
               Trabajamos con los estándares más altos, asegurando que cada
@@ -138,15 +125,15 @@ export function Trust() {
               ].map((s, i) => (
                 <div
                   key={i}
-                  className={i > 0 ? "pl-8 border-l border-white/[0.07]" : ""}
+                  className={i > 0 ? "pl-8 border-l border-[var(--color-brand-muted)]/30" : ""}
                 >
                   <div
-                    className="text-2xl font-black text-white tracking-tight"
+                    className="text-2xl font-black text-[var(--color-brand-blue)] tracking-tight"
                     style={{ fontFamily: "'Sora', sans-serif" }}
                   >
                     {s.val}
                   </div>
-                  <div className="text-[9px] font-bold tracking-widest uppercase text-white/25 mt-0.5">
+                  <div className="text-[9px] font-bold tracking-widest uppercase text-[var(--color-brand-muted)] mt-0.5">
                     {s.label}
                   </div>
                 </div>
@@ -163,11 +150,10 @@ export function Trust() {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-[13px] font-bold tracking-wide text-white group"
+                  className="flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-[13px] font-bold tracking-wide text-[var(--color-brand-blue)] group"
                   style={{
-                    background:
-                      "linear-gradient(135deg, rgba(16,185,129,0.15), rgba(16,185,129,0.06))",
-                    border: "1px solid rgba(16,185,129,0.25)",
+                    background: "rgba(15,37,73,0.05)",
+                    border: "1px solid rgba(15,37,73,0.1)",
                   }}
                 >
                   Conozca más sobre nosotros
@@ -176,7 +162,7 @@ export function Trust() {
                     whileHover={{ x: 2, y: -2 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <ArrowUpRight size={14} style={{ color: "#10B981" }} />
+                    <ArrowUpRight size={14} style={{ color: "var(--color-brand-orange)" }} />
                   </motion.span>
                 </motion.button>
               </Link>
@@ -197,15 +183,15 @@ export function Trust() {
                     delay: i * 0.12,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="group relative rounded-2xl overflow-hidden"
+                  className="group relative rounded-2xl overflow-hidden shadow-sm"
                   style={{
-                    background:
-                      "linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
-                    border: "1px solid rgba(255,255,255,0.06)",
+                    background: "rgba(255,255,255,0.7)",
+                    backdropFilter: "blur(12px)",
+                    border: "1px solid rgba(15,37,73,0.08)",
                   }}
                   whileHover={{
                     borderColor: `${pillar.accent}35`,
-                    boxShadow: `0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px ${pillar.accent}20`,
+                    boxShadow: `0 16px 40px rgba(15,37,73,0.08), 0 0 0 1px ${pillar.accent}20`,
                     transition: { duration: 0.3 },
                   }}
                 >
@@ -237,16 +223,16 @@ export function Trust() {
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
                         <h3
-                          className="text-[16px] font-black text-white tracking-tight"
+                          className="text-[16px] font-black text-[var(--color-brand-blue)] tracking-tight"
                           style={{ fontFamily: "'Sora', sans-serif" }}
                         >
                           {pillar.title}
                         </h3>
-                        <span className="text-[9px] font-mono text-white/18">
+                        <span className="text-[9px] font-mono text-[var(--color-brand-muted)]">
                           {pillar.index}
                         </span>
                       </div>
-                      <p className="text-[12px] text-white/35 leading-relaxed font-light">
+                      <p className="text-[12px] text-[var(--color-brand-dark)]/80 leading-relaxed font-light">
                         {pillar.desc}
                       </p>
                     </div>
@@ -264,20 +250,20 @@ export function Trust() {
                 className="mt-2 px-7 py-5 rounded-2xl"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(16,185,129,0.07), rgba(16,185,129,0.02))",
-                  border: "1px solid rgba(16,185,129,0.12)",
+                    "linear-gradient(135deg, rgba(228,128,44,0.07), rgba(228,128,44,0.02))",
+                  border: "1px solid rgba(228,128,44,0.12)",
                 }}
               >
-                <div className="text-[28px] leading-none font-black text-[#10B981] opacity-30 mb-2">
-                  "
+                <div className="text-[28px] leading-none font-black text-[var(--color-brand-orange)] opacity-40 mb-2">
+                  &quot;
                 </div>
-                <p className="text-[12px] text-white/32 italic leading-relaxed font-light">
+                <p className="text-[12px] text-[var(--color-brand-dark)]/90 italic leading-relaxed font-light">
                   La mejor reparación es la que se hace bien desde la primera vez.
                   Eso es lo que prometemos.
                 </p>
                 <div className="mt-3 flex items-center gap-2">
-                  <div className="w-4 h-[1px] bg-white/15" />
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-white/20">
+                  <div className="w-4 h-[1px] bg-[var(--color-brand-orange)]/50" />
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-[var(--color-brand-orange)]">
                     COYMAN PROYECTOS
                   </span>
                 </div>

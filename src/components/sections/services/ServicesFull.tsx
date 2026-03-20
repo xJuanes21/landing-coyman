@@ -15,7 +15,7 @@ import {
 const categories = [
   {
     title: "Línea Blanca y Refrigeración",
-    accent: "#0EA5E9",
+    accent: "#e4802c",
     items: [
       {
         name: "Mantenimiento de Lavadoras",
@@ -41,7 +41,7 @@ const categories = [
   },
   {
     title: "Instalaciones y Mantenimiento Eléctrico",
-    accent: "#F59E0B",
+    accent: "#0f2549",
     items: [
       {
         name: "Cableado y Tableros",
@@ -70,26 +70,16 @@ const categories = [
 export function ServicesFull() {
   return (
     <section
-      className="relative py-32 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(180deg, #080A0E 0%, #0C0E14 50%, #080A0E 100%)",
-      }}
+      className="relative py-32 overflow-hidden bg-[var(--color-brand-bg)]"
     >
       {/* Ambient glow spots */}
       <div
         className="absolute top-0 left-1/4 w-[600px] h-[300px] rounded-full opacity-[0.03] blur-[120px]"
-        style={{ background: "#0EA5E9" }}
+        style={{ background: "var(--color-brand-blue)" }}
       />
       <div
         className="absolute bottom-40 right-1/4 w-[500px] h-[300px] rounded-full opacity-[0.03] blur-[100px]"
-        style={{ background: "#F59E0B" }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.015]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }}
+        style={{ background: "var(--color-brand-orange)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -102,11 +92,11 @@ export function ServicesFull() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-3 mb-6"
           >
-            <div className="w-8 h-[1px] bg-white/20" />
-            <span className="text-[10px] font-black tracking-[0.35em] uppercase text-white/40 font-mono">
+            <div className="w-8 h-[1px] bg-[var(--color-brand-muted)]/50" />
+            <span className="text-[10px] font-black tracking-[0.35em] uppercase text-[var(--color-brand-muted)] font-mono">
               Catálogo de Servicios
             </span>
-            <div className="w-8 h-[1px] bg-white/20" />
+            <div className="w-8 h-[1px] bg-[var(--color-brand-muted)]/50" />
           </motion.div>
 
           <motion.h2
@@ -118,17 +108,14 @@ export function ServicesFull() {
               delay: 0.1,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="text-4xl md:text-5xl lg:text-[60px] font-black text-white leading-[1.05] tracking-tight mb-8"
+            className="text-4xl md:text-5xl lg:text-[60px] font-black text-[var(--color-brand-blue)] leading-[1.05] tracking-tight mb-8"
             style={{ fontFamily: "'Sora', 'DM Sans', sans-serif" }}
           >
             Soluciones diseñadas para
             <br />
             <span
               style={{
-                background:
-                  "linear-gradient(135deg, #fff 30%, rgba(255,255,255,0.45))",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                color: "var(--color-brand-orange)",
               }}
             >
               la tranquilidad de su hogar.
@@ -140,7 +127,7 @@ export function ServicesFull() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.22 }}
-            className="text-[15px] text-white/40 leading-relaxed font-light max-w-2xl"
+            className="text-[15px] text-[var(--color-brand-dark)]/80 leading-relaxed font-light max-w-2xl"
           >
             Cada uno de nuestros servicios cuenta con personal especializado,
             diagnósticos certeros y nuestro respaldo total de garantía.
@@ -166,9 +153,9 @@ export function ServicesFull() {
                   {category.title}
                 </h3>
                 <div
-                  className="h-[1px] flex-1"
+                  className="h-[2px] flex-1"
                   style={{
-                    background: `linear-gradient(90deg, ${category.accent}40, transparent)`,
+                    background: `linear-gradient(90deg, ${category.accent}60, transparent)`,
                   }}
                 />
               </motion.div>
@@ -188,29 +175,16 @@ export function ServicesFull() {
                     }}
                     className="group relative h-full"
                   >
-                    {/* Glow effect on hover */}
-                    <div
-                      className="absolute -inset-px rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md"
-                      style={{
-                        background: `radial-gradient(circle at top left, ${category.accent}30, transparent 40%)`,
-                      }}
-                    />
-
                     {/* Card Container */}
                     <div
-                      className="relative h-full flex flex-col sm:flex-row gap-6 p-8 rounded-2xl border"
-                      style={{
-                        background:
-                          "linear-gradient(145deg, rgba(255,255,255,0.035), rgba(255,255,255,0.01))",
-                        borderColor: "rgba(255,255,255,0.06)",
-                      }}
+                      className="relative h-full flex flex-col sm:flex-row gap-6 p-8 rounded-2xl bg-white border border-[var(--color-brand-blue)]/5 hover:border-[var(--color-brand-blue)]/10 shadow-sm hover:shadow-md transition-shadow duration-300"
                     >
                       {/* Icon */}
                       <div
                         className="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
                         style={{
                           background: `linear-gradient(135deg, ${category.accent}15, ${category.accent}05)`,
-                          border: `1px solid ${category.accent}25`,
+                          border: `1px solid ${category.accent}20`,
                         }}
                       >
                         <item.icon size={26} style={{ color: category.accent }} />
@@ -219,12 +193,12 @@ export function ServicesFull() {
                       {/* Info */}
                       <div className="flex flex-col flex-1 h-full">
                         <h4
-                          className="text-xl font-bold text-white mb-3 tracking-tight"
+                          className="text-xl font-bold text-[var(--color-brand-blue)] mb-3 tracking-tight"
                           style={{ fontFamily: "'DM Sans', sans-serif" }}
                         >
                           {item.name}
                         </h4>
-                        <p className="text-[14px] text-white/45 leading-relaxed font-light mb-6 flex-1">
+                        <p className="text-[14px] text-[var(--color-brand-dark)]/80 leading-relaxed font-light mb-6 flex-1">
                           {item.desc}
                         </p>
 
@@ -247,7 +221,7 @@ export function ServicesFull() {
                           </span>
                           <span
                             className="flex items-center justify-center w-6 h-6 rounded-full transition-all duration-300 group-hover/btn:translate-x-1"
-                            style={{ background: `${category.accent}20` }}
+                            style={{ background: `${category.accent}15` }}
                           >
                             <ArrowRight size={12} style={{ color: category.accent }} />
                           </span>
@@ -264,4 +238,3 @@ export function ServicesFull() {
     </section>
   );
 }
-

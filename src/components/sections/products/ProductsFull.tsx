@@ -1,11 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
 import { CopyPlus, ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const productGroups = [
   {
     title: "Repuestos para Línea Blanca",
-    accent: "#F59E0B",
+    accent: "#e4802c",
     items: [
       {
         name: "Tarjetas Electrónicas",
@@ -31,7 +32,7 @@ const productGroups = [
   },
   {
     title: "Insumos Eléctricos",
-    accent: "#0EA5E9",
+    accent: "#0f2549",
     items: [
       {
         name: "Cableado y Tubería",
@@ -59,21 +60,15 @@ const productGroups = [
 
 export function ProductsFull() {
   return (
-    <section
-      className="relative py-32 overflow-hidden"
-      style={{
-        background:
-          "linear-gradient(180deg, #07090D 0%, #0C0F16 50%, #07090D 100%)",
-      }}
-    >
+    <section className="relative py-32 overflow-hidden bg-[var(--color-brand-bg)]">
       {/* Ambient */}
       <div
         className="absolute top-1/4 left-0 w-[500px] h-[400px] rounded-full opacity-[0.03] blur-[140px]"
-        style={{ background: "#F59E0B" }}
+        style={{ background: "var(--color-brand-orange)" }}
       />
       <div
         className="absolute bottom-1/4 right-0 w-[400px] h-[350px] rounded-full opacity-[0.03] blur-[120px]"
-        style={{ background: "#0EA5E9" }}
+        style={{ background: "var(--color-brand-blue)" }}
       />
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
@@ -86,11 +81,11 @@ export function ProductsFull() {
             transition={{ duration: 0.6 }}
             className="flex items-center gap-3 mb-6"
           >
-            <div className="w-8 h-[1px] bg-white/20" />
-            <span className="text-[10px] font-black tracking-[0.35em] uppercase text-white/40 font-mono">
+            <div className="w-8 h-[1px] bg-[var(--color-brand-muted)]/40" />
+            <span className="text-[10px] font-black tracking-[0.35em] uppercase text-[var(--color-brand-muted)] font-mono">
               Inventario Especializado
             </span>
-            <div className="w-8 h-[1px] bg-white/20" />
+            <div className="w-8 h-[1px] bg-[var(--color-brand-muted)]/40" />
           </motion.div>
 
           <motion.h2
@@ -102,17 +97,14 @@ export function ProductsFull() {
               delay: 0.1,
               ease: [0.22, 1, 0.36, 1],
             }}
-            className="text-4xl md:text-5xl lg:text-[60px] font-black text-white leading-[1.05] tracking-tight mb-8"
+            className="text-4xl md:text-5xl lg:text-[60px] font-black text-[var(--color-brand-blue)] leading-[1.05] tracking-tight mb-8"
             style={{ fontFamily: "'Sora', 'DM Sans', sans-serif" }}
           >
             Suministros originales
             <br />
             <span
               style={{
-                background:
-                  "linear-gradient(120deg, #fff 20%, rgba(255,255,255,0.38))",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
+                color: "var(--color-brand-orange)",
               }}
             >
               con total garantía.
@@ -124,7 +116,7 @@ export function ProductsFull() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.22 }}
-            className="text-[15px] text-white/40 leading-relaxed font-light max-w-2xl"
+            className="text-[15px] text-[var(--color-brand-dark)]/80 leading-relaxed font-light max-w-2xl"
           >
             Distribuimos refacciones originales y materiales eléctricos para
             garantizar la máxima durabilidad en cada intervención que
@@ -145,14 +137,15 @@ export function ProductsFull() {
                 className="mb-14 flex items-center justify-between gap-6"
               >
                 <div className="flex items-center gap-4">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center bg-white/[0.03] border border-white/[0.08]"
-                  >
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center bg-white border border-[var(--color-brand-blue)]/5 shadow-sm">
                     <CopyPlus size={18} style={{ color: group.accent }} />
                   </div>
                   <h3
                     className="text-2xl md:text-3xl font-black tracking-tight"
-                    style={{ fontFamily: "'Sora', sans-serif", color: group.accent }}
+                    style={{
+                      fontFamily: "'Sora', sans-serif",
+                      color: group.accent,
+                    }}
                   >
                     {group.title}
                   </h3>
@@ -178,60 +171,53 @@ export function ProductsFull() {
                       duration: 0.6,
                       ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="group relative flex flex-col p-3 rounded-2xl h-full"
-                    style={{
-                      background:
-                        "linear-gradient(145deg, rgba(255,255,255,0.03), rgba(255,255,255,0.005))",
-                      border: "1px solid rgba(255,255,255,0.06)",
-                    }}
+                    className="group relative flex flex-col p-3 rounded-2xl h-full bg-white shadow-sm hover:shadow-lg transition-all duration-500 border border-[var(--color-brand-blue)]/5 hover:border-[var(--color-brand-blue)]/15"
                   >
                     {/* Hover Glow Edge */}
                     <div
                       className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                       style={{
-                        boxShadow: `inset 0 0 0 1px ${group.accent}40`,
+                        boxShadow: `inset 0 0 0 1px ${group.accent}20`,
                       }}
                     />
 
                     {/* Image Box */}
-                    <div className="relative h-48 rounded-xl overflow-hidden mb-5 bg-[#0A0C12]">
-                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
-                      <img
+                    <div className="relative h-48 rounded-xl overflow-hidden mb-5 bg-[#f4f4f3]">
+                      <div className="absolute inset-0 bg-[var(--color-brand-blue)]/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                      <Image
                         src={item.image}
                         alt={item.name}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                        fill
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       />
                     </div>
 
                     <div className="flex flex-col flex-1 px-2 pb-2">
                       <h4
-                        className="font-bold text-[17px] text-white tracking-tight mb-4"
+                        className="font-bold text-[17px] text-[var(--color-brand-blue)] tracking-tight mb-4"
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
                       >
                         {item.name}
                       </h4>
-                      <div className="mt-auto pt-4 border-t border-white/[0.04]">
+                      <div className="mt-auto pt-4 border-t border-[var(--color-brand-blue)]/5">
                         <button
                           onClick={() =>
                             window.open(
                               `https://wa.me/573182732524?text=Hola,%20busco%20la%20disponibilidad%20para%20el%20producto:%20${encodeURIComponent(
-                                item.name
+                                item.name,
                               )}`,
-                              "_blank"
+                              "_blank",
                             )
                           }
                           className="w-full flex items-center justify-between group/btn"
                         >
-                          <span className="text-[11px] font-bold tracking-widest uppercase text-white/50 transition-colors group-hover/btn:text-white">
+                          <span className="text-[11px] font-bold tracking-widest uppercase text-[var(--color-brand-muted)] transition-colors group-hover/btn:text-[var(--color-brand-orange)]">
                             Consultar
                           </span>
-                          <span
-                            className="flex items-center justify-center w-7 h-7 rounded-lg transition-colors group-hover/btn:bg-white/10"
-                            style={{ background: "rgba(255,255,255,0.05)" }}
-                          >
+                          <span className="flex items-center justify-center w-7 h-7 rounded-lg transition-colors bg-[var(--color-brand-blue)]/5 group-hover/btn:bg-[var(--color-brand-orange)]/10">
                             <ArrowRight
                               size={14}
-                              className="text-white/50 group-hover/btn:text-white transition-colors"
+                              className="text-[var(--color-brand-muted)] group-hover/btn:text-[var(--color-brand-orange)] transition-colors"
                             />
                           </span>
                         </button>
@@ -247,4 +233,3 @@ export function ProductsFull() {
     </section>
   );
 }
-

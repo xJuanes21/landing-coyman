@@ -1,11 +1,5 @@
-import type { Metadata } from "next"
-import { ProductsFull } from "@/components/sections/products/ProductsFull"
-import { CTA } from "@/components/sections/landing/CTA"
-
-export const metadata: Metadata = {
-  title: "Productos y Repuestos | Coyman Proyectos",
-  description: "Repuestos originales para línea blanca y materiales eléctricos de la máxima calidad garantizada en Cali.",
-}
+import { ProductsFull } from "@/components/sections/products/ProductsFull";
+import { CTA } from "@/components/sections/landing/CTA";
 
 export default function ProductsPage() {
   return (
@@ -15,5 +9,5 @@ export default function ProductsPage() {
       </div>
       <CTA />
     </div>
-  )
+  );
 }
