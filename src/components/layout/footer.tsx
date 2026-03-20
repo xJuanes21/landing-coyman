@@ -10,6 +10,7 @@ import {
   Mail,
   ArrowUpRight,
 } from "lucide-react";
+import { getInstagramUrl, getFacebookUrl } from "@/lib/social";
 
 export function Footer() {
   return (
@@ -22,25 +23,39 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
           {/* Brand Info */}
           <div className="lg:col-span-4">
-            <Link href="/" className="inline-block mb-8 group">
-              <Image
-                src="/logo-coyman-completo.png"
-                alt="Coyman Proyectos"
-                width={200}
-                height={60}
-                className="h-36 w-auto group-hover:opacity-90 transition-opacity duration-300 brightness-0 invert"
-              />
-            </Link>
+            <Link href="/" className="inline-block mb-8">
+              <div
+                className="w-40 h-40 md:w-52 md:h-52 rounded-[40px] flex items-center justify-center p-8"
+                style={{
+                  background: "var(--color-brand-blue)",
+                  boxShadow:
+                    "inset 6px 6px 16px rgba(0,0,0,0.45), inset -4px -4px 10px rgba(255,255,255,0.04)",
+                }}
+              >
+                <Image
+                  src="/logo-coyman-completo.png"
+                  alt="Coyman Proyectos"
+                  width={360}
+                  height={180}
+                  className="w-full h-auto object-contain brightness-0 invert"
+                />
+              </div>
+            </Link>{" "}
             <p className="text-[13px] text-white/40 leading-relaxed font-light mb-8 max-w-xs">
               Soluciones técnicas de la más alta calidad para su hogar y
               empresa, respaldadas por ingenieros certificados y décadas de
               experiencia operando.
             </p>
             <div className="flex gap-3">
-              {[Facebook, Instagram].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: getFacebookUrl() },
+                { Icon: Instagram, href: getInstagramUrl() },
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full border border-white/5 bg-white/5 flex items-center justify-center text-white/60 hover:text-[var(--color-brand-orange)] hover:border-[var(--color-brand-orange)]/30 hover:bg-[var(--color-brand-orange)]/10 transition-all duration-300"
                 >
                   <Icon size={18} />
@@ -60,6 +75,7 @@ export function Footer() {
                 { name: "Sobre Nosotros", href: "/sobre-nosotros" },
                 { name: "Servicios", href: "/servicios" },
                 { name: "Suministros", href: "/productos" },
+                { name: "Términos y Privacidad", href: "/legal" },
               ].map((link, i) => (
                 <li key={i}>
                   <Link
@@ -117,7 +133,7 @@ export function Footer() {
                   <span className="text-[13px] text-white/70 leading-snug block">
                     Calle 102 f # 23b-68
                     <br />
-                    Valle del Cauca, Colombia
+                    Cali, Colombia
                   </span>
                 </div>
               </li>

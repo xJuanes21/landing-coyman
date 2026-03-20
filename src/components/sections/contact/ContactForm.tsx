@@ -9,6 +9,7 @@ import {
   Send,
   ShieldCheck,
 } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/social";
 import { FloatingInput } from "@/components/ui/floating-input";
 import { FloatingTextarea } from "@/components/ui/floating-textarea";
 
@@ -22,11 +23,13 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hola, mi nombre es ${formData.name}.%0A%0A*Teléfono:* ${formData.phone}%0A*Correo:* ${formData.email}%0A*Mensaje:* ${formData.message}`;
-    window.open(
-      `https://wa.me/573182732524?text=${encodeURIComponent(text.replace(/%0A/g, "\n"))}`,
-      "_blank",
-    );
+    const customMessage = `Hola, mi nombre es ${formData.name}.
+
+*Teléfono:* ${formData.phone}
+*Correo:* ${formData.email}
+*Mensaje:* ${formData.message}`;
+    const whatsappUrl = getWhatsAppUrl(customMessage);
+    window.open(whatsappUrl, "_blank");
   };
 
   return (

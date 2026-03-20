@@ -44,9 +44,9 @@ export function Navbar() {
               <Image
                 src="/logo-coyman.png"
                 alt="Coyman Proyectos Logo"
-                width={70}
-                height={40}
-                className="group-hover:opacity-80 transition-opacity duration-300"
+                width={160}
+                height={60}
+                className="h-12 md:h-16 w-auto group-hover:opacity-80 transition-opacity duration-300"
               />
             </Link>
 

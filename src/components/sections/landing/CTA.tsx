@@ -8,6 +8,7 @@ import {
 } from "framer-motion";
 import { MessageCircle, ArrowUpRight, Zap } from "lucide-react";
 import { useRef, useState } from "react";
+import { getWhatsAppUrl } from "@/lib/social";
 
 export function CTA() {
   const [hovered, setHovered] = useState(false);
@@ -114,7 +115,7 @@ export function CTA() {
               setHovered(false);
             }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => window.open("https://wa.me/573182732524", "_blank")}
+            onClick={() => window.open(getWhatsAppUrl(), "_blank")}
             className="relative inline-flex items-center gap-3 px-10 py-5 rounded-2xl text-[15px] font-black tracking-wide text-white overflow-hidden group"
             style={{
               x: bx as unknown as MotionValue<number>,

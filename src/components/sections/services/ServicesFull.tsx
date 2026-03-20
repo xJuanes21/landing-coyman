@@ -10,7 +10,9 @@ import {
   Lightbulb,
   ShieldCheck,
   ArrowRight,
+  Refrigerator,
 } from "lucide-react";
+import { getWhatsAppUrl } from "@/lib/social";
 
 const categories = [
   {
@@ -25,12 +27,12 @@ const categories = [
       {
         name: "Reparación de Neveras",
         desc: "Sistemas no-frost, nevecones, cambios de compresor y recarga de gas refrigerante.",
-        icon: Snowflake,
+        icon: Refrigerator,
       },
       {
         name: "Aires Acondicionados",
         desc: "Mantenimiento preventivo, limpieza de filtros y reparación de tarjetas electrónicas.",
-        icon: Thermometer,
+        icon: Snowflake,
       },
       {
         name: "Calentadores",
@@ -69,9 +71,7 @@ const categories = [
 
 export function ServicesFull() {
   return (
-    <section
-      className="relative py-32 overflow-hidden bg-[var(--color-brand-bg)]"
-    >
+    <section className="relative py-32 overflow-hidden bg-[var(--color-brand-bg)]">
       {/* Ambient glow spots */}
       <div
         className="absolute top-0 left-1/4 w-[600px] h-[300px] rounded-full opacity-[0.03] blur-[120px]"
@@ -148,7 +148,10 @@ export function ServicesFull() {
               >
                 <h3
                   className="text-3xl font-black tracking-tight"
-                  style={{ fontFamily: "'Sora', sans-serif", color: category.accent }}
+                  style={{
+                    fontFamily: "'Sora', sans-serif",
+                    color: category.accent,
+                  }}
                 >
                   {category.title}
                 </h3>
@@ -176,9 +179,7 @@ export function ServicesFull() {
                     className="group relative h-full"
                   >
                     {/* Card Container */}
-                    <div
-                      className="relative h-full flex flex-col sm:flex-row gap-6 p-8 rounded-2xl bg-white border border-[var(--color-brand-blue)]/5 hover:border-[var(--color-brand-blue)]/10 shadow-sm hover:shadow-md transition-shadow duration-300"
-                    >
+                    <div className="relative h-full flex flex-col sm:flex-row gap-6 p-8 rounded-2xl bg-white border border-[var(--color-brand-blue)]/5 hover:border-[var(--color-brand-blue)]/10 shadow-sm hover:shadow-md transition-shadow duration-300">
                       {/* Icon */}
                       <div
                         className="w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
@@ -187,7 +188,10 @@ export function ServicesFull() {
                           border: `1px solid ${category.accent}20`,
                         }}
                       >
-                        <item.icon size={26} style={{ color: category.accent }} />
+                        <item.icon
+                          size={26}
+                          style={{ color: category.accent }}
+                        />
                       </div>
 
                       {/* Info */}
@@ -205,10 +209,10 @@ export function ServicesFull() {
                         <button
                           onClick={() =>
                             window.open(
-                              `https://wa.me/573182732524?text=Hola,%20deseo%20cotizar%20el%20servicio%20de:%20${encodeURIComponent(
-                                item.name
-                              )}`,
-                              "_blank"
+                              getWhatsAppUrl(
+                                `Hola, deseo cotizar el servicio de: ${item.name}`,
+                              ),
+                              "_blank",
                             )
                           }
                           className="self-start flex items-center gap-2 group/btn"
@@ -223,7 +227,10 @@ export function ServicesFull() {
                             className="flex items-center justify-center w-6 h-6 rounded-full transition-all duration-300 group-hover/btn:translate-x-1"
                             style={{ background: `${category.accent}15` }}
                           >
-                            <ArrowRight size={12} style={{ color: category.accent }} />
+                            <ArrowRight
+                              size={12}
+                              style={{ color: category.accent }}
+                            />
                           </span>
                         </button>
                       </div>

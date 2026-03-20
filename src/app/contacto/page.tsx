@@ -2,8 +2,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Instagram, Facebook } from "lucide-react";
 import { ContactForm } from "@/components/sections/contact/ContactForm";
+import { getInstagramUrl, getFacebookUrl, getWhatsAppUrl } from "@/lib/social";
 
 export default function ContactPage() {
   return (
@@ -84,58 +85,71 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="lg:col-span-2 space-y-6"
+              className="lg:col-span-2 space-y-4"
             >
               {[
                 {
                   icon: MapPin,
                   title: "Nuestra Sede Principal",
-                  content: "Cali, Valle del Cauca\nColombia",
+                  content: "Calle 102 f # 23b-68\nCali, Colombia",
                   accent: "var(--color-brand-blue)",
+                  href: null,
                 },
                 {
                   icon: Phone,
                   title: "Líneas de Atención",
-                  content: "+57 (318) 273-2524\nServicio de emergencias 24/7",
+                  content: "+57 (318) 273-2524\nWhatsApp disponible 24/7",
                   accent: "var(--color-brand-orange)",
+                  href: getWhatsAppUrl(),
+                },
+                {
+                  icon: Instagram,
+                  title: "Siga nuestro trabajo",
+                  content: "@coymanproyectos\nInstagram oficial",
+                  accent: "#E1306C",
+                  href: getInstagramUrl(),
+                },
+                {
+                  icon: Facebook,
+                  title: "Comunidad en Facebook",
+                  content: "Coyman Proyectos\nPágina oficial",
+                  accent: "#1877F2",
+                  href: getFacebookUrl(),
                 },
                 {
                   icon: Mail,
                   title: "Correo Electrónico",
-                  content:
-                    "contacto@coymanproyectos.com\nSoporte técnico y cotizaciones",
+                  content: "coymanproyectos@gmail.com\nSoporte y cotizaciones",
                   accent: "var(--color-brand-blue)",
-                },
-                {
-                  icon: Clock,
-                  title: "Horarios de Servicio",
-                  content:
-                    "Lunes a Sábado: 8:00 AM - 6:00 PM\nDomingos: Solo emergencias pautadas",
-                  accent: "var(--color-brand-orange)",
+                  href: "mailto:coymanproyectos@gmail.com",
                 },
               ].map((info, idx) => (
-                <div
+                <motion.a
                   key={idx}
-                  className="bg-white p-6 rounded-2xl flex items-start gap-5 shadow-sm border border-[var(--color-brand-blue)]/5"
+                  href={info.href || undefined}
+                  target={info.href ? "_blank" : undefined}
+                  rel={info.href ? "noopener noreferrer" : undefined}
+                  whileHover={info.href ? { y: -2, scale: 1.01 } : {}}
+                  className={`bg-white p-5 rounded-2xl flex items-start gap-5 shadow-sm border border-[var(--color-brand-blue)]/5 transition-all duration-300 ${info.href ? "hover:shadow-md hover:border-[var(--color-brand-orange)]/20 cursor-pointer" : ""}`}
                 >
                   <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0"
-                    style={{ background: `${info.accent}15` }}
+                    className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0"
+                    style={{ background: `${info.accent}10` }}
                   >
-                    <info.icon size={22} style={{ color: info.accent }} />
+                    <info.icon size={20} style={{ color: info.accent }} />
                   </div>
-                  <div>
+                  <div className="flex-1">
                     <h4
-                      className="text-[15px] font-bold text-[var(--color-brand-blue)] mb-1.5"
+                      className="text-[14px] font-bold text-[var(--color-brand-blue)] mb-1"
                       style={{ fontFamily: "'Sora', sans-serif" }}
                     >
                       {info.title}
                     </h4>
-                    <p className="text-[13px] text-[var(--color-brand-dark)]/70 whitespace-pre-line leading-relaxed">
+                    <p className="text-[12px] text-[var(--color-brand-dark)]/70 whitespace-pre-line leading-relaxed">
                       {info.content}
                     </p>
                   </div>
-                </div>
+                </motion.a>
               ))}
             </motion.div>
           </div>

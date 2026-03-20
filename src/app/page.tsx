@@ -1,4 +1,5 @@
 import { Hero } from "@/components/sections/landing/Hero"
+import { LogoCarousel } from "@/components/sections/landing/LogoCarousel"
 import { ServicesPreview } from "@/components/sections/landing/ServicesPreview"
 import { Benefits } from "@/components/sections/landing/Benefits"
 import { CTA } from "@/components/sections/landing/CTA"
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Hero />
+      <LogoCarousel />
       <ServicesPreview />
       <Benefits />
       <CTA />

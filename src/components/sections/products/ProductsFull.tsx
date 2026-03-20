@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { CopyPlus, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import { getWhatsAppUrl } from "@/lib/social";
 
 const productGroups = [
   {
@@ -10,23 +11,19 @@ const productGroups = [
     items: [
       {
         name: "Tarjetas Electrónicas",
-        image:
-          "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+        image: "",
       },
       {
         name: "Bombas y Válvulas",
-        image:
-          "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=80",
+        image: "",
       },
       {
         name: "Correas y Poleas",
-        image:
-          "https://images.unsplash.com/photo-1537151377170-9c19a791bbea?auto=format&fit=crop&w=600&q=80",
+        image: "",
       },
       {
         name: "Motores Originales",
-        image:
-          "https://images.unsplash.com/photo-1581092335397-9583eb92d232?auto=format&fit=crop&w=600&q=80",
+        image: "",
       },
     ],
   },
@@ -36,23 +33,19 @@ const productGroups = [
     items: [
       {
         name: "Cableado y Tubería",
-        image:
-          "https://images.unsplash.com/photo-1616423640778-28d1b53229bd?auto=format&fit=crop&w=600&q=80",
+        image: "",
       },
       {
         name: "Breakers y Tableros",
-        image:
-          "https://images.unsplash.com/photo-1621535921896-1c4b7b2fb0a6?auto=format&fit=crop&w=600&q=80",
+        image: "",
       },
       {
         name: "Interruptores y Tomas",
-        image:
-          "https://images.unsplash.com/photo-1584950348704-51543d2c8c4a?auto=format&fit=crop&w=600&q=80",
+        image: "",
       },
       {
         name: "Luminarias y Sensores",
-        image:
-          "https://images.unsplash.com/photo-1523315904943-345389dd88fa?auto=format&fit=crop&w=600&q=80",
+        image: "",
       },
     ],
   },
@@ -119,8 +112,8 @@ export function ProductsFull() {
             className="text-[15px] text-[var(--color-brand-dark)]/80 leading-relaxed font-light max-w-2xl"
           >
             Distribuimos refacciones originales y materiales eléctricos para
-            garantizar la máxima durabilidad en cada intervención que
-            realizamos o que su empresa necesite.
+            garantizar la máxima durabilidad en cada intervención que realizamos
+            o que su empresa necesite.
           </motion.p>
         </div>
 
@@ -185,7 +178,10 @@ export function ProductsFull() {
                     <div className="relative h-48 rounded-xl overflow-hidden mb-5 bg-[#f4f4f3]">
                       <div className="absolute inset-0 bg-[var(--color-brand-blue)]/5 group-hover:bg-transparent transition-colors duration-500 z-10" />
                       <Image
-                        src={item.image}
+                        src={
+                          item.image ||
+                          "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=800&q=80"
+                        }
                         alt={item.name}
                         fill
                         className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
@@ -203,9 +199,9 @@ export function ProductsFull() {
                         <button
                           onClick={() =>
                             window.open(
-                              `https://wa.me/573182732524?text=Hola,%20busco%20la%20disponibilidad%20para%20el%20producto:%20${encodeURIComponent(
-                                item.name,
-                              )}`,
+                              getWhatsAppUrl(
+                                `Hola, busco la disponibilidad para el producto: ${item.name}`,
+                              ),
                               "_blank",
                             )
                           }

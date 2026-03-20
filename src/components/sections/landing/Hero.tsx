@@ -2,6 +2,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, ArrowUpRight, Zap } from "lucide-react";
 import { useRef } from "react";
+import { getWhatsAppUrl } from "@/lib/social";
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -122,7 +123,7 @@ export function Hero() {
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => window.open("https://wa.me/573182732524", "_blank")}
+            onClick={() => window.open(getWhatsAppUrl(), "_blank")}
             className="relative flex items-center gap-2.5 px-8 py-4 rounded-2xl text-[14px] font-black tracking-wide text-white overflow-hidden group"
             style={{
               background: "var(--color-brand-orange)",
@@ -182,15 +183,15 @@ export function Hero() {
           ].map((s, i) => (
             <div key={i} className="flex items-center">
               <div
-                className={`px-7 text-center ${i > 0 ? "border-l border-[var(--color-brand-muted)]/30" : ""}`}
+                className={`px-4 md:px-7 text-center ${i > 0 ? "border-l border-[var(--color-brand-muted)]/30" : ""}`}
               >
                 <div
-                  className="text-[22px] font-black text-[var(--color-brand-blue)] tracking-tight leading-none"
+                  className="text-[17px] md:text-[22px] font-black text-[var(--color-brand-blue)] tracking-tight leading-none"
                   style={{ fontFamily: "'Sora', sans-serif" }}
                 >
                   {s.val}
                 </div>
-                <div className="text-[10px] font-semibold tracking-widest uppercase text-[var(--color-brand-muted)] mt-1">
+                <div className="text-[9px] md:text-[10px] font-semibold tracking-widest uppercase text-[var(--color-brand-muted)] mt-1">
                   {s.label}
                 </div>
               </div>

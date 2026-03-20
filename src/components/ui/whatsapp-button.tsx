@@ -1,17 +1,14 @@
 "use client";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useState, useEffect } from "react";
+import { getWhatsAppUrl } from "@/lib/social";
 
 export function WhatsAppButton() {
   const [hovered, setHovered] = useState(false);
   const [nudged, setNudged] = useState(false);
   const controls = useAnimation();
 
-  const phoneNumber = "573182732524";
-  const message = encodeURIComponent(
-    "Hola COYMAN PROYECTOS, me gustaría recibir más información sobre sus servicios.",
-  );
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
+  const whatsappUrl = getWhatsAppUrl();
 
   // Nudge de atención cada ~8s
   useEffect(() => {
