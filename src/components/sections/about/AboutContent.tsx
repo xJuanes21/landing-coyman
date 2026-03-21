@@ -150,7 +150,7 @@ export function AboutContent() {
 
             <div className="relative rounded-2xl overflow-hidden shadow-2xl h-[550px] border border-[var(--color-brand-blue)]/10">
               <Image
-                src=""
+                src="/assets/image.png"
                 alt="Técnico realizando mantenimiento"
                 fill
                 className="object-cover"
