@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 const logos = [
@@ -22,33 +21,11 @@ export function LogoCarousel() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 overflow-hidden">
-        <motion.div
-          animate={{
-            x: [0, -100 * logos.length + "%"],
-          }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: "loop",
-              duration: 250,
-              ease: "linear",
-            },
-          }}
-          className="flex items-center  w-max"
-        >
-          {extendedLogos.map((logo, index) => (
-            <motion.div
+        <div className="flex items-center w-max animate-scroll will-change-transform">
+          {[...extendedLogos, ...extendedLogos].map((logo, index) => (
+            <div
               key={index}
-              animate={{
-                y: [0, -5, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: index * 0.4,
-              }}
-              className="relative w-72 h-48 md:w-80 md:h-40 transition-all duration-500 cursor-default flex items-center justify-center shrink-0"
+              className="relative w-72 h-48 md:w-80 md:h-40 transition-all duration-500 cursor-default flex items-center justify-center shrink-0 px-4 md:px-8"
             >
               <Image
                 src={logo.src}
@@ -57,9 +34,9 @@ export function LogoCarousel() {
                 className="object-contain"
                 sizes="(max-width: 768px) 288px, 320px"
               />
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Floating subtle dots/decoration */}

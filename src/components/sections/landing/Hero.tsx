@@ -20,11 +20,12 @@ export function Hero() {
     >
       {/* Parallax background image */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110 will-change-transform"
         style={{
           backgroundImage:
             "url('https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=2000&q=80')",
           y: imgY,
+          translateZ: 0,
         }}
       />
 
