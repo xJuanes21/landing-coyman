@@ -81,7 +81,7 @@ function ProductCard({
       }}
       style={{ rotateX: rx, rotateY: ry, transformPerspective: 900 }}
       onMouseMove={(e) => {
-        if (!ref.current) return;
+        if (!ref.current || window.innerWidth < 768) return;
         const r = ref.current.getBoundingClientRect();
         mx.set(e.clientX - r.left - r.width / 2);
         my.set(e.clientY - r.top - r.height / 2);
