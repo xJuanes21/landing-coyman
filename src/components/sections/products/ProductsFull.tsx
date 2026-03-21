@@ -11,19 +11,19 @@ const productGroups = [
     items: [
       {
         name: "Tarjetas Electrónicas",
-        image: "",
+        image: "/products/tarjetas-electronicas.png",
       },
       {
         name: "Bombas y Válvulas",
-        image: "",
+        image: "/products/bombas-valvulas.png",
       },
       {
         name: "Correas y Poleas",
-        image: "",
+        image: "/products/correas-poleas.png",
       },
       {
         name: "Motores Originales",
-        image: "",
+        image: "/products/motores-originales.png",
       },
     ],
   },
@@ -33,19 +33,19 @@ const productGroups = [
     items: [
       {
         name: "Cableado y Tubería",
-        image: "",
+        image: "/products/cableado-tuberia.png",
       },
       {
         name: "Breakers y Tableros",
-        image: "",
+        image: "/products/breakers-tableros.png",
       },
       {
         name: "Interruptores y Tomas",
-        image: "",
+        image: "/products/interruptores.png",
       },
       {
         name: "Luminarias y Sensores",
-        image: "",
+        image: "/products/luimineria-sensores.png",
       },
     ],
   },
